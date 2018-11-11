@@ -1,0 +1,21 @@
+//
+// Created by kang on 18-11-11.
+//
+
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+int main()
+{
+
+    //execise 10.1
+    int fd1 = open("helloworld", O_RDONLY, 0);
+    close(fd1);
+    int fd2 = open("kangkang", O_RDONLY, 0);
+    printf("fd2 --> %d", fd2);//fd2 为3 因为fd1为3 后来被close了，于是分给当前最小的就是3
+    exit(0);
+}
